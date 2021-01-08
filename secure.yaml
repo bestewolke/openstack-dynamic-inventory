@@ -1,0 +1,7 @@
+clouds:
+  eu-de:
+    auth:
+      password: XXX
+  eu-nl:
+    auth:
+      password: XXX

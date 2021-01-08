@@ -1,0 +1,15 @@
+clouds:
+  eu-de:
+    profile: otc
+    auth:
+      project_name: eu-de
+      username: USERNAME
+      user_domain_name: DOMAINNAME
+
+  eu-nl:
+    profile: otc
+    region_name: eu-nl
+    auth:
+      project_name: eu-nl
+      username: USERNAME
+      user_domain_name: DOMAINNAME

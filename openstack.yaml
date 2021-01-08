@@ -1,0 +1,8 @@
+plugin: openstack.cloud.openstack
+expand_hostvars: yes
+
+cache: yes
+cache_plugin: ansible.builtin.jsonfile
+cache_timeout: 3600
+cache_connection: dynamic_inventory
+cache_prefix: os_
