@@ -1,5 +1,4 @@
 plugin: openstack.cloud.openstack
-expand_hostvars: yes
 
 cache: yes
 cache_plugin: ansible.builtin.jsonfile

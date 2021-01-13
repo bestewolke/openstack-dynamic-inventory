@@ -1,6 +1,9 @@
 # openstack-dynamic-inventory
 Example for the OpenStack Dynamic Inventory Plugin
 
+## Prerequisites
+Use Ansible 2.10
+
 ## Usage
 Configure your OpenStack clouds in `clouds.yaml` and passwords in `secure.yaml` (look into the files for examples).
 
@@ -10,8 +13,6 @@ ansible-inventory -i openstack.yaml --graph
 ```
 `--graph` displays a nice inventory graph output  
 `--list` displays all the host info as json
-
-The `expand_hostvars` option is enabled which does additional grouping into e.g. flavors and images.   
 
 The inventory gets cached in the `dynamic_inventory` folder with a timeout of one hour.
 
