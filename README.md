@@ -2,7 +2,8 @@
 Example for the OpenStack Dynamic Inventory Plugin
 
 ## Prerequisites
-Use Ansible 2.10
+- Ansible 2.10
+- openstacksdk
 
 ## Usage
 Configure your OpenStack clouds in `clouds.yaml` and passwords in `secure.yaml` (look into the files for examples).
