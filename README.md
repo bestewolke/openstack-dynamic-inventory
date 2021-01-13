@@ -18,11 +18,11 @@ The inventory gets cached in the `dynamic_inventory` folder with a timeout of on
 
 ***
 
-You can use the Dynamic Inventory in your Playbook or an Ansible command like:
+You can use the Dynamic Inventory for your Playbook:
 ```
 ansible-playbook -i openstack.yaml myplaybook.yaml
 ```
-or
+or an Ansible ad-hoc command:
 ```
 ansible all -i openstack.yaml -m ansible.builtin.ping --ssh-common-args="-o StrictHostKeyChecking=no"
 ```
