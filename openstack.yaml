@@ -1,7 +1,8 @@
 plugin: openstack.cloud.openstack
 
 groups:
-  test_group: "'my-tag=my-tag-value' in (openstack.tags|list)"
+  staging: "'env=staging' in (openstack.tags|list)"
+  production: "'env=production' in (openstack.tags|list)"
 
 keyed_groups:
   - key: openstack.tags
