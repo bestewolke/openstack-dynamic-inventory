@@ -1,5 +1,12 @@
 plugin: openstack.cloud.openstack
 
+groups:
+  test_group: "'my-tag=my-tag-value' in (openstack.tags|list)"
+
+keyed_groups:
+  - key: openstack.tags
+    prefix: tags
+
 cache: yes
 cache_plugin: ansible.builtin.jsonfile
 cache_timeout: 3600
