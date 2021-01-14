@@ -17,6 +17,68 @@ ansible-inventory -i openstack.yaml --graph
 
 The inventory gets cached in the `dynamic_inventory` folder with a timeout of one hour.
 
+#### Advanced Host Grouping
+You can add tags to your OpenStack VMs and group them according to those tags.  
+There are two grouping mechanisms:
+- **keyed_groups**:  This will automatically analyze all tags & values and create corresponding inventory groups.  
+The group names are auto-generated, you cannot change them. They consist of the prefix, the tag key and the value.  
+For OpenStack tags the syntax is like this (choose a prefix to your liking):
+  ```
+  keyed_groups:
+    - key: openstack.tags
+      prefix: tags
+  ```
+  Result:
+  ```
+  @all:
+  |--@eu-nl:
+  |  |--webserver-0001
+  |  |--webserver-0002
+  |  |--webserver-0003
+  |  |--webserver-0004
+  |  |--webserver-0005
+  |  |--webserver-0006
+  |  |--…
+  |--@tags_env_production:
+  |  |--webserver-0001
+  |  |--webserver-0002
+  |  |--webserver-0003
+  |--@tags_env_staging:
+  |  |--webserver-0004
+  |  |--webserver-0005
+  |  |--webserver-0006
+  |--@ungrouped:
+  ```
+- **groups**: You can group your hosts with Jinja2 conditionals. With this you can also set your own group names.  
+For OpenStack tags the syntax is like this (the example creates two groups: staging & production, and adds hosts according to their tag key/value pairs):
+  ```
+  groups:
+    staging: "'env=staging' in (openstack.tags|list)"
+    production: "'env=production' in (openstack.tags|list)"
+  ```
+  Result:
+  ```
+  @all:
+  |--@eu-nl:
+  |  |--webserver-0001
+  |  |--webserver-0002
+  |  |--webserver-0003
+  |  |--webserver-0004
+  |  |--webserver-0005
+  |  |--webserver-0006
+  |  |--…
+  |--@production:
+  |  |--webserver-0001
+  |  |--webserver-0002
+  |  |--webserver-0003
+  |--@staging:
+  |  |--webserver-0004
+  |  |--webserver-0005
+  |  |--webserver-0006
+  |--@ungrouped:
+
+  ```
+
 ***
 
 You can use the Dynamic Inventory for your Playbook:
