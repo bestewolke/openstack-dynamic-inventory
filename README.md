@@ -8,8 +8,6 @@ Example for the OpenStack Dynamic Inventory Plugin
 ## Usage
 Configure your OpenStack clouds in `clouds.yaml` and passwords in `secure.yaml` (look into the files for examples).
 
-:warning: Currently the plugin only supports up to 999 VMs per configured cloud. If you have 1000 or more VMs in one of your clouds, the result will be empty.
-
 You can run the Inventory Plugin to test your setup:
 ```
 ansible-inventory -i openstack.yaml --graph
