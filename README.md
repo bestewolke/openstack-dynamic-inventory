@@ -23,7 +23,7 @@ There are two grouping mechanisms:
 - **keyed_groups**:  This will automatically analyze all tags & values and create corresponding inventory groups.  
 The group names are auto-generated, you cannot change them. They consist of the prefix, the tag key and the value.  
 For OpenStack tags the syntax is like this (choose a prefix to your liking):
-  ```
+  ```yaml
   keyed_groups:
     - key: openstack.tags
       prefix: tags
@@ -51,7 +51,7 @@ For OpenStack tags the syntax is like this (choose a prefix to your liking):
   ```
 - **groups**: You can group your hosts with Jinja2 conditionals. With this you can also set your own group names.  
 For OpenStack tags the syntax is like this (the example creates two groups: staging & production, and adds hosts according to their tag key/value pairs):
-  ```
+  ```yaml
   groups:
     staging: "'env=staging' in (openstack.tags|list)"
     production: "'env=production' in (openstack.tags|list)"
